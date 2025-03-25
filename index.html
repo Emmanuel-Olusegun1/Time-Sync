@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time Sync</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="index.js" defer></script>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: black;
+        }
+        
+        /* Background Video */
+        video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        /* Clock Container */
+        .clock {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            border: 6px solid white;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.3);
+        }
+
+        /* Clock Face */
+        .clock-face {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Clock Hands */
+        .hand {
+            width: 45%;
+            height: 3px;
+            background: white;
+            position: absolute;
+            top: 50%;
+            left: 5%;
+            transform-origin: 100%;
+            transform: rotate(90deg); 
+            transition: all .05s;
+            transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+        }
+
+        .hr-hand {
+            background: white;
+        }
+
+        .min-hand {
+            background: lawngreen;
+        }
+
+        .seconds-hand {
+            background: red;
+        }
+
+        /* Center Dot */
+        .center-dot {
+            width: 12px;
+            height: 12px;
+            background: white;
+            border-radius: 50%;
+            position: absolute;
+            z-index: 10;
+        }
+
+        /* Number Styling */
+        .number {
+            position: absolute;
+            font-size: 22px;
+            font-weight: bold;
+            color: white;
+            text-align: center;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform: translate(-50%, -50%);
+        }
+
+        /* Positioning Numbers Using Transform */
+        .num-1  { transform: rotate(30deg)  translate(125px) rotate(-30deg); }
+        .num-2  { transform: rotate(60deg)  translate(125px) rotate(-60deg); }
+        .num-3  { transform: rotate(90deg)  translate(125px) rotate(-90deg); }
+        .num-4  { transform: rotate(120deg) translate(125px) rotate(-120deg); }
+        .num-5  { transform: rotate(150deg) translate(125px) rotate(-150deg); }
+        .num-6  { transform: rotate(180deg) translate(125px) rotate(-180deg); }
+        .num-7  { transform: rotate(210deg) translate(125px) rotate(-210deg); }
+        .num-8  { transform: rotate(240deg) translate(125px) rotate(-240deg); }
+        .num-9  { transform: rotate(270deg) translate(125px) rotate(-270deg); }
+        .num-10 { transform: rotate(300deg) translate(125px) rotate(-300deg); }
+        .num-11 { transform: rotate(330deg) translate(125px) rotate(-330deg); }
+        .num-12 { transform: rotate(0deg)   translate(125px) rotate(0deg); }
+
+    </style>
+</head>
+<body>
+    <!-- Background Video -->
+    <video autoplay muted loop>
+        <source src="bg.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Clock -->
+    <div class="clock">
+        <div class="clock-face">
+     
+            <!-- Numbers -->
+            <div class="number num-12">3</div>
+            <div class="number num-1">4</div>
+            <div class="number num-2">5</div>
+            <div class="number num-3">6</div>
+            <div class="number num-4">7</div>
+            <div class="number num-5">8</div>
+            <div class="number num-6">9</div>
+            <div class="number num-7">10</div>
+            <div class="number num-8">11</div>
+            <div class="number num-9">12</div>
+            <div class="number num-10">1</div>
+            <div class="number num-11">2</div>
+
+            <div class="center-dot"></div>
+            <div class="hand hr-hand"></div>
+            <div class="hand min-hand"></div>
+            <div class="hand seconds-hand"></div>
+
+        </div>
+    </div>
+</body>
+</html>
